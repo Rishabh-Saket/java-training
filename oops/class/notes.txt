@@ -1,0 +1,4 @@
+Class is a named group of properties and functions
+Object is an instance of class
+class is logical construct
+Object is physical reality/ occupies memory
