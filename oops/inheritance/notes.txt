@@ -1,0 +1,2 @@
+parents can't access child variables
+can access parent class variables using super --> super.h

@@ -1,0 +1,7 @@
+9 May
+singleton pattern
+exception handling
+file reading and writing
+gson
+Autoclosable
+Annotations
