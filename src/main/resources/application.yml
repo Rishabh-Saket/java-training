@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: SpringMysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/aktsoft
+    username: teja
+    password: teja
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate: 
+      ddl-auto: update
+    show-sql: true
