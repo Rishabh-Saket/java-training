@@ -1,0 +1,53 @@
+notes for today's class
+1. jap repo extends ListPagingandSortingRepository and that too extends PagingandSortingREpository
+
+public record MoviePageResponse(List<MovieDTOs> moviesDTO, Integer pageNumber, Integer pageSize, int totalElemnts, int totalPages, boolean isLast)
+{
+
+}
+
+
+in Service Layer
+MoviePageResponse getAllMoviesWithPAgination(Integer pageNumber, Integer pageSize)
+{
+Pageable pageable=PageRequest.of(pageSize, pageNumber);
+
+Page<Movie> moviePages= movieRepsoitory.findALL(pageable);
+List<MOvie> movies=moviePages.getContent();
+
+// logic to convert to DTOs
+
+return new MoviePageResponse(movieDTOs, pageNumber, pageSize,
+				moviePages.getTotalPages(),
+				moviePages.getTOtalElements(),
+				 moviePages.isLast());
+}
+
+MoviePageResponse getAllMoviesWithPaginationnadSorting(Int pageNumber, Integer pageSize
+							String sortBy, String dir)
+{
+Sort sort=dir.equalsIgnoreCase("asc")? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+
+
+Pageable pageable=PageRequest.of(pageSize, pageNumber, sort);
+
+Page<Movie> moviePages= movieRepsoitory.findALL(pageable);
+List<MOvie> movies=moviePages.getContent();
+
+// logic to convert to DTOs
+
+return new MoviePageResponse(movieDTOs, pageNumber, pageSize,
+				moviePages.getTotalPages(),
+				moviePages.getTOtalElements(),
+				 moviePages.isLast());
+
+}
+
+public class AppConstants {
+    public static final String PAGE_NUMBER = "0";
+    public static final String PAGE_SIZE = "3";
+
+    public static final String SORT_BY = "movieId";
+
+    public static final String SORT_DIR = "asc";
+}
