@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/aktsoft?useSSL=false
+    username: teja
+    password: teja
+   
+  jpa.hibernate.ddl_auto: create
