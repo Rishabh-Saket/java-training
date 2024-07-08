@@ -36,7 +36,7 @@ public class CloudVendorAPIService
 	public String createCloudVendorDetails(@RequestBody CloudVendor cloudVendor)
 	{
 		cloudVendorService.createCloudVendor(cloudVendor);
-		return "Clouyd Vendor created successfully";
+		return "Cloud Vendor created successfully";
 	}
 	
 	@PutMapping
